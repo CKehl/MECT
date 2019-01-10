@@ -574,7 +574,8 @@ void MhdImage3D<T>::write() {
 
 	if(_volumeCenter==NULL) {
 		_volumeCenter = new float[3];
-		bzero(_volumeCenter, 3*sizeof(float));
+		//bzero(_volumeCenter, 3*sizeof(float));
+		memset(_volumeCenter, 0, 3*sizeof(float));
 	}
 
 	std::ofstream mhdFile;
@@ -915,7 +916,8 @@ void MhdImage4D<T>::write() {
 
 	if(_volumeCenter==NULL) {
 		_volumeCenter = new float[3];
-		bzero(_volumeCenter, 3*sizeof(float));
+		//bzero(_volumeCenter, 3*sizeof(float));
+		memset(_volumeCenter, 0, 3*sizeof(float));
 	}
 
 	std::ofstream mhdFile;

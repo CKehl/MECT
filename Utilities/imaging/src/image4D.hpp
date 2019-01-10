@@ -229,12 +229,19 @@ protected:
 			fsize*=Image<Scalar,4>::_dim[index];
 		if(Image<Scalar,4>::_data==NULL) {
 			Image<Scalar,4>::_data=new Scalar[fsize];
-			bzero(Image<Scalar,4>::_data, sizeof(Scalar)*fsize);
+			//bzero(Image<Scalar,4>::_data, sizeof(Scalar)*fsize);
+			memset(Image<Scalar,4>::_data, 0, sizeof(Scalar)*fsize);
 		}
 	}
 	inline void zeroData() {
 		if(Image<Scalar,4>::_data!=NULL) {
-			bzero(Image<Scalar,4>::_data, sizeof(Scalar));
+			unsigned long fsize=1;
+			if(Image<Scalar,4>::_dim==NULL)
+				return;
+			for(size_t index=0; index<4; index++)
+				fsize*=Image<Scalar,4>::_dim[index];
+			//bzero(Image<Scalar,4>::_data, sizeof(Scalar));
+			memset(Image<Scalar,4>::_data, 0, sizeof(Scalar)*fsize);
 		}
 	}
 	inline void copyData(Scalar* source) {

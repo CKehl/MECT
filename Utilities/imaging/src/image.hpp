@@ -139,7 +139,7 @@ protected:
 		x = rest % _dim[0];
 		return;
 	}
-	inline unsigned long getIndicesFromAddress_rowMajor(unsigned long address, uint& x, uint& y, uint& z, uint& w) {
+	inline void getIndicesFromAddress_rowMajor(unsigned long address, uint& x, uint& y, uint& z, uint& w) {
 		uint dim3=0, dim4=0;
 		if(ndims>2)
 			dim3 = _dim[2];

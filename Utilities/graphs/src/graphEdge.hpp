@@ -8,6 +8,12 @@
 #ifndef GRAPHEDGE_H_
 #define GRAPHEDGE_H_
 
+#ifndef _CXX_COMPILE_
+#include "../../common/src/std_typedefs.h"
+#else
+#include "Utilities/common/src/std_typedefs.h"
+#endif
+
 class graphEdge {
 public:
 	graphEdge();
